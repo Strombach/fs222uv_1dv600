@@ -1,10 +1,10 @@
 class ModuleTemplate {
   constructor (input) {
-    this.test = input
+    this.testInput = input
   }
 
   printTest (testText) {
-    console.log(testText)
+    console.log(this.testInput)
   }
 }
 

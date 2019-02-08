@@ -3,10 +3,10 @@
  */
 
 const JsTemplate = require('./template/module_template')
-let testModule = new JsTemplate('This could be a word')
+let testModule = new JsTemplate('This could be a word!')
 
 function firstTest () {
-  testModule.printTest('Patrik äger')
+  testModule.printTest('Test')
 }
 
 firstTest()
