@@ -1,0 +1,19 @@
+{
+  "name": "hangman_game",
+  "version": "1.0.0",
+  "description": "Student repository for 1dv600",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Strombach/fs222uv_1dv600.git"
+  },
+  "author": "Fredrik Strömbäck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Strombach/fs222uv_1dv600/issues"
+  },
+  "homepage": "https://github.com/Strombach/fs222uv_1dv600#readme"
+}
