@@ -1,5 +1,12 @@
+/**
+ * The start point for the application.
+ */
+
+const JsTemplate = require('./template/module_template')
+let testModule = new JsTemplate('This could be a word')
+
 function firstTest () {
-  console.log('Hello World')
+  testModule.printTest('Patrik äger')
 }
 
 firstTest()
