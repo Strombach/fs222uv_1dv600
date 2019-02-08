@@ -2,11 +2,12 @@
  * The start point for the application.
  */
 
-const JsTemplate = require('./template/module_template')
-let testModule = new JsTemplate('This could be a word!')
+const WordClass = require('./lib/Word.js')
+let word = new WordClass('Hej')
 
-function firstTest () {
-  testModule.printTest('Test')
+function firstLetter () {
+  word.createLetters()
+  console.log(word)
 }
 
-firstTest()
+firstLetter()

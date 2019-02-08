@@ -3,7 +3,7 @@ class ModuleTemplate {
     this.testInput = input
   }
 
-  printTest (testText) {
+  printTest () {
     console.log(this.testInput)
   }
 }
