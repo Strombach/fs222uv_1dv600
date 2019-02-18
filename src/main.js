@@ -7,7 +7,7 @@ let word = new WordClass('Hej')
 
 function firstLetter () {
   word.createLetters()
-  console.log(word)
+  console.log(word.wordArr)
 }
 
 firstLetter()
