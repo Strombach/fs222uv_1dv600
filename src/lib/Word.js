@@ -11,7 +11,7 @@ class Word {
     for (let i = 0; i < this.chosenWord.length; i++) {
       let letter = this.wordSplit[i]
       let letterObj = new LetterClass(letter)
-      this.wordArr.push(letterObj.hidden)
+      this.wordArr.push(letterObj)
     }
   }
 }

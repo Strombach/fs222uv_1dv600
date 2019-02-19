@@ -3,11 +3,11 @@
  */
 
 const WordClass = require('./lib/Word.js')
-let word = new WordClass('Hej')
+let word = new WordClass('TEST')
 
-function firstLetter () {
+function createWord () {
   word.createLetters()
   console.log(word.wordArr)
 }
 
-firstLetter()
+createWord()

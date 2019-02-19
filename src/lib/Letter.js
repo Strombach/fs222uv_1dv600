@@ -3,9 +3,6 @@ class Letter {
     this.hidden = '_'
     this.letter = input
   }
-
-  printLetter () {
-  }
 }
 
 module.exports = Letter
