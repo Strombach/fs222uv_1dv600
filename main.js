@@ -74,6 +74,7 @@ function enterName () {
  * The gamer can guess a letter.
  */
 function guessLetter () {
+  console.log(word.guesses)
   gamer.printGamer()
   console.log(word.chosenWord)
   word.printWord()
