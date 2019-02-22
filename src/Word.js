@@ -5,7 +5,6 @@ class Word {
     this.chosenWord = input
     this.wordSplit = this.chosenWord.split('')
     this.wordArr = []
-    this.guesses = []
   }
 
   createLetters () {
@@ -25,14 +24,13 @@ class Word {
   }
 
   checkLetter (letter, gamer) {
+    let includes = this.wordArr.includes(letter)
+    console.log(includes)
     for (let i = 0; i < this.wordArr.length; i++) {
       if (this.wordArr[i].letter === letter) {
         this.wordArr[i].shown = letter
         this.printWord()
         gamer.correctGuesses++
-      } else {
-        this.guesses.push(letter)
-        this.guesses = [...new Set(this.guesses)]
       }
     }
   }

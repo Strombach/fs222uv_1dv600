@@ -74,18 +74,22 @@ function enterName () {
  * The gamer can guess a letter.
  */
 function guessLetter () {
-  console.log(word.guesses)
+  console.log(gamer.guessedLetters)
   gamer.printGamer()
-  console.log(word.chosenWord)
   word.printWord()
+
   rl.question('Guess a letter:\n', letter => {
-    if (letter.length === 1) {
+    if (letter.length === 1 && !gamer.guessedLetters.includes(letter)) {
+      gamer.guessedLetters.push(letter)
       word.checkLetter(letter, gamer)
       console.clear()
+      if (!word.wordSplit.includes(letter)) {
+        gamer.mistakeCounter++
+      }
     } else if (letter.length < 1) {
       console.clear()
       console.log('Need to enter a letter')
-    } else {
+    } else if (letter.length > 1){
       console.clear()
       console.log('Only single letters')
     }
@@ -94,7 +98,10 @@ function guessLetter () {
       gamer.printGamer()
       word.printWord()
       winGame()
-    } else {
+    } else if (gamer.mistakeCounter === 10) {
+      loseGame()
+    }else {
+      console.clear()
       guessLetter()
     }
   })
@@ -104,6 +111,14 @@ function winGame () {
   mainMenu()
   console.log(`
 YOU GUESSED THE WORD ${gamer.name}!!
+The word was ${word.chosenWord}
+Want to play again?
+Enter a Number`)
+}
+
+function loseGame () {
+  mainMenu()
+  console.log(`
 The word was ${word.chosenWord}
 Want to play again?
 Enter a Number`)
