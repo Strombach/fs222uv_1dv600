@@ -2,7 +2,7 @@
  * The start point for the application.
  */
 
-const WordClass = require('./lib/Word.js')
+const WordClass = require('./src/Word.js')
 let word = new WordClass('TEST')
 
 function createWord () {
