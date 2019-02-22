@@ -21,8 +21,7 @@ let menu = 'MENU\nEnter number\n[1] Play Game\n[2] Quit Game\n'
 
 
 /**
- * The function for generate a word and display it
- * in the console.
+ * The function for generate a word.
  */
 function createWord () {
   word.createLetters()
@@ -38,7 +37,6 @@ function mainMenu () {
       console.clear()
       enterName()
       createWord()
-      // console.log(word.chosenWord)
     } else if (userInput === '2') {
       rl.close()
     } else {
@@ -49,6 +47,10 @@ function mainMenu () {
   })
 }
 
+/**
+ * Creates the part for the gamer to enter his
+ * or her name.
+ */
 function enterName () {
   console.clear()
   rl.question('Enter a three character name\n', name => {
@@ -61,9 +63,22 @@ function enterName () {
     } else {
       console.clear()
       gamer.name = name
-      console.log(gamer)
-      word.printWord()
+      guessLetter()
     }
+  })
+}
+
+/**
+ * The gamer can guess a letter.
+ */
+function guessLetter () {
+  gamer.printGamer()
+  console.log(word.chosenWord)
+  word.printWord()
+  rl.question('Guess a letter:', letter => {
+    word.checkLetter(letter)
+    console.clear()
+    guessLetter()
   })
 }
 

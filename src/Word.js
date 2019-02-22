@@ -22,6 +22,16 @@ class Word {
     }
     console.log(printArr.join(' '))
   }
+
+  checkLetter (letter) {
+    for(let i = 0; i < this.wordArr.length; i++) {
+      if (this.wordArr[i].letter === letter) {
+        this.wordArr[i].shown = letter
+        console.log(this.wordArr[i].shown)
+        this.printWord()
+      }
+    }
+  }
 }
 
 module.exports = Word
