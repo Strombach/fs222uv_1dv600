@@ -3,8 +3,8 @@ const LetterClass = require('./Letter')
 class Word {
   constructor (input) {
     this.chosenWord = input
-    this.wordArr = []
     this.wordSplit = this.chosenWord.split('')
+    this.wordArr = []
   }
 
   createLetters () {
@@ -13,6 +13,14 @@ class Word {
       let letterObj = new LetterClass(letter)
       this.wordArr.push(letterObj)
     }
+  }
+
+  printWord () {
+    let printArr = []
+    for(let i = 0; i < this.wordArr.length; i++) {
+      printArr.push(this.wordArr[i].shown)
+    }
+    console.log(printArr.join(' '))
   }
 }
 

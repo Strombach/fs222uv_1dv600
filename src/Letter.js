@@ -1,6 +1,6 @@
 class Letter {
   constructor (input) {
-    this.hidden = '_'
+    this.shown = '_'
     this.letter = input
   }
 }
