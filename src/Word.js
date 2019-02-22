@@ -17,7 +17,7 @@ class Word {
 
   printWord () {
     let printArr = []
-    for(let i = 0; i < this.wordArr.length; i++) {
+    for (let i = 0; i < this.wordArr.length; i++) {
       printArr.push(this.wordArr[i].shown)
     }
     console.log(printArr.join(' '))
@@ -25,7 +25,7 @@ class Word {
 
   checkLetter (letter, gamer) {
     let correct = false
-    for(let i = 0; i < this.wordArr.length; i++) {
+    for (let i = 0; i < this.wordArr.length; i++) {
       if (this.wordArr[i].letter === letter) {
         this.wordArr[i].shown = letter
         console.log(this.wordArr[i].shown)
