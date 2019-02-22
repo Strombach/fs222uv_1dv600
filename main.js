@@ -75,11 +75,35 @@ function guessLetter () {
   gamer.printGamer()
   console.log(word.chosenWord)
   word.printWord()
-  rl.question('Guess a letter:', letter => {
-    word.checkLetter(letter)
-    console.clear()
-    guessLetter()
+  rl.question('Guess a letter:\n', letter => {
+    if (letter.length === 1) {
+      word.checkLetter(letter, gamer)
+      console.clear()
+    } else if (letter.length < 1) {
+      console.clear()
+      console.log('Need to enter a letter')
+    } else {
+      console.clear()
+      console.log('Only single letters')
+    }
+
+    if (gamer.correctGuesses === word.chosenWord.length) {
+      gamer.printGamer()
+      word.printWord()
+      winGame()
+    } else {
+      guessLetter()
+    }
   })
+}
+
+function winGame () {
+  mainMenu()
+  console.log(`
+YOU GUESSED THE WORD ${gamer.name}!!
+The word was ${word.chosenWord}
+Want to play again?
+Enter a Number`)
 }
 
 mainMenu()
