@@ -34,9 +34,6 @@ class Word {
         correct = true
       }
     }
-    if (correct === false) {
-      console.log('Wrong!')
-    }
   }
 }
 
