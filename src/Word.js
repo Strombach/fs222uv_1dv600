@@ -24,8 +24,6 @@ class Word {
   }
 
   checkLetter (letter, gamer) {
-    let includes = this.wordArr.includes(letter)
-    console.log(includes)
     for (let i = 0; i < this.wordArr.length; i++) {
       if (this.wordArr[i].letter === letter) {
         this.wordArr[i].shown = letter

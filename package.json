@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/Strombach/fs222uv_1dv600/issues"
   },
-  "homepage": "https://github.com/Strombach/fs222uv_1dv600#readme"
+  "homepage": "https://github.com/Strombach/fs222uv_1dv600#readme",
+  "dependencies": {}
 }
