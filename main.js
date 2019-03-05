@@ -2,7 +2,7 @@
  * The start point for the application.
  */
 
-const fs = require('fs') 
+const fs = require('fs')
 const readline = require('readline')
 
 let rl = readline.createInterface(process.stdin, process.stdout)
@@ -18,13 +18,11 @@ let gamer = null
 
 let menu = 'MENU\nEnter number\n[1] Play Game\n[2] Quit Game\n'
 
-
 /**
  * The function for generate a word.
  */
 function createWord () {
-  word = new WordClass(wordList[Math.floor(Math
-    .random() * wordList.length)])
+  word = new WordClass(wordList[Math.floor(Math.random() * wordList.length)])
   word.createLetters()
 }
 
@@ -89,7 +87,7 @@ function guessLetter () {
     } else if (letter.length < 1) {
       console.clear()
       console.log('Need to enter a letter')
-    } else if (letter.length > 1){
+    } else if (letter.length > 1) {
       console.clear()
       console.log('Only single letters')
     }
@@ -100,7 +98,7 @@ function guessLetter () {
       winGame()
     } else if (gamer.mistakeCounter === 10) {
       loseGame()
-    }else {
+    } else {
       console.clear()
       guessLetter()
     }
