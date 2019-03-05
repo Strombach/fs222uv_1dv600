@@ -6,6 +6,10 @@ class Gamer {
     this.guessedLetters = []
   }
 
+  /**
+ * The function that prints the name and
+ * the number of attempts left for the gamer.
+ */
   printGamer () {
     console.log(`Your name is: ${this.name}`)
     console.log(`You got ${10 - this.mistakeCounter} attemps left.`)
