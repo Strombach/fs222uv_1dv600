@@ -1,5 +1,8 @@
 class Gamer {
   constructor (input) {
+    if (!input) {
+      throw new Error('No input sent to gamer constructor')
+    }
     this.name = input
     this.mistakeCounter = 0
     this.correctGuesses = 0

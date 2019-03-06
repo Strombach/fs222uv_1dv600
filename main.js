@@ -16,7 +16,7 @@ let word = null
 
 let gamer = null
 
-let menu = 'MENU\nEnter number\n[1] Play Game\n[2] Quit Game\n'
+let menu = 'The HangMan\nEnter number\n[1] Play Game\n[2] Quit Game\n'
 
 /**
  * The function for generate a word.
@@ -34,7 +34,6 @@ function mainMenu () {
   rl.question(menu, userInput => {
     if (userInput === '1') {
       console.clear()
-      gamer = new Gamer()
       enterName()
       createWord()
     } else if (userInput === '2') {
@@ -62,6 +61,7 @@ function enterName () {
       console.log('Too few characters!')
     } else {
       console.clear()
+      gamer = new Gamer('gmr')
       gamer.name = name
       guessLetter()
     }
@@ -117,6 +117,7 @@ Enter a Number`)
 function loseGame () {
   mainMenu()
   console.log(`
+Sorry ${gamer.name}, you did not guess the word.
 The word was ${word.chosenWord}
 Want to play again?
 Enter a Number`)
