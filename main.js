@@ -37,7 +37,7 @@ function mainMenu () {
       enterName()
       createWord()
     } else if (userInput === '2') {
-      rl.close()
+      quitGame()
     } else {
       console.clear()
       mainMenu()
@@ -79,7 +79,7 @@ function guessLetter () {
   gamer.printGamer()
   word.printWord()
 
-  rl.question('Guess a letter:\n', letter => {
+  rl.question('Guess a letter or enter "Q" to quit the game:\n', letter => {
     if (letter.length === 1 && !gamer.guessedLetters.includes(letter)) {
       if (letter === 'Q') {
         quitGame('guess')
@@ -140,6 +140,8 @@ function quitGame (prevState) {
         guessLetter()
       } else if (prevState === 'name') {
         enterName()
+      } else {
+        mainMenu()
       }
     }
   })
