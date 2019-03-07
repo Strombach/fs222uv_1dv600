@@ -52,20 +52,23 @@ function mainMenu () {
  */
 function enterName () {
   console.clear()
-  rl.question('Enter a three character name\n', name => {
-    if (name.length > 3) {
-      enterName()
-      console.log('Too many characters!')
-    } else if (name.length < 3) {
-      enterName()
-      console.log('Too few characters!')
-    } else {
-      console.clear()
-      gamer = new Gamer('gmr')
-      gamer.name = name
-      guessLetter()
-    }
-  })
+  rl.question('Enter a three character name or a "Q" to quit the game\n',
+    name => {
+      if (name.length > 3) {
+        enterName()
+        console.log('Too many characters!')
+      } else if (name === 'Q') {
+        quitGame('name')
+      } else if (name.length < 3) {
+        enterName()
+        console.log('Too few characters!')
+      } else {
+        console.clear()
+        gamer = new Gamer('gmr')
+        gamer.name = name
+        guessLetter()
+      }
+    })
 }
 
 /**
@@ -78,6 +81,10 @@ function guessLetter () {
 
   rl.question('Guess a letter:\n', letter => {
     if (letter.length === 1 && !gamer.guessedLetters.includes(letter)) {
+      if (letter === 'Q') {
+        quitGame('guess')
+        return
+      }
       gamer.guessedLetters.push(letter)
       word.checkLetter(letter, gamer)
       console.clear()
@@ -121,6 +128,21 @@ Sorry ${gamer.name}, you did not guess the word.
 The word was ${word.chosenWord}
 Want to play again?
 Enter a Number`)
+}
+
+function quitGame (prevState) {
+  rl.question(`Are you sure you want to quit? (y/n): `, answer => {
+    if (answer === 'y') {
+      rl.close()
+    } else if (answer === 'n') {
+      if (prevState === 'guess') {
+        console.clear()
+        guessLetter()
+      } else if (prevState === 'name') {
+        enterName()
+      }
+    }
+  })
 }
 
 mainMenu()
