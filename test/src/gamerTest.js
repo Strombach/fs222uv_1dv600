@@ -14,10 +14,10 @@ function runTest () {
         assert.equal(sut.name, 'sut')
       })
       it('No input should throw exception', () => {
-        assert.isTrue(inputThrowsExceptionIfEmpty())
+        assert.isTrue(shouldReturnTrueIfError())
       })
       it('Throws exception if input is not a string', () => {
-        assert.isTrue(inputThrowsExceptionIfNotString())
+        assert.isTrue(shouldReturnTrueIfInputIsNotAString())
       })
     })
     describe('Gaming, the word is "apple"', function () {
@@ -31,7 +31,7 @@ function runTest () {
   })
 }
 
-function inputThrowsExceptionIfEmpty () {
+function shouldReturnTrueIfError () {
   try {
     sut = new Gamer()
   } catch (err) {
@@ -40,7 +40,7 @@ function inputThrowsExceptionIfEmpty () {
   return false
 }
 
-function inputThrowsExceptionIfNotString () {
+function shouldReturnTrueIfInputIsNotAString () {
   try {
     sut = new Gamer(5)
   } catch (err) {

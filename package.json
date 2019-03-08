@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Student repository for 1dv600",
   "standard": {
-    "env": [ "mocha" ]
+    "env": [
+      "mocha"
+    ]
   },
   "main": "main.js",
   "scripts": {
