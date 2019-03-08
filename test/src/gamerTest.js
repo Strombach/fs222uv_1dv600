@@ -3,12 +3,10 @@ const Gamer = require('../../src/Gamer')
 const Word = require('../../src/Word')
 
 let sut = new Gamer('sut')
-let word = new Word('apple')
-word.createLetters()
 
 function runTest () {
   describe('Gamer', () => {
-    describe('Setup', () => {
+    describe('Initiate', () => {
       it('Name is a string and should be "sut"', () => {
         assert.typeOf(sut.name, 'string')
         assert.equal(sut.name, 'sut')
@@ -21,9 +19,11 @@ function runTest () {
       })
     })
     describe('Gaming, the word is "apple"', function () {
-      sut = new Gamer('sut')
-      let letter = 'p'
       it('Should increase correctGuesses by two when player guesses the letter "p"', () => {
+        sut = new Gamer('sut')
+        let word = new Word('apple')
+        word.createLetters()
+        let letter = 'p'
         word.checkLetter(letter, sut)
         assert.equal(sut.correctGuesses, 2)
       })
