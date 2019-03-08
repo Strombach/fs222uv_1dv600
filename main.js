@@ -9,6 +9,7 @@ let rl = readline.createInterface(process.stdin, process.stdout)
 
 const Gamer = require('./src/Gamer')
 const WordClass = require('./src/Word')
+const Scores = require('./src/Scores')
 const wordList = JSON.parse(fs
   .readFileSync('./src/wordlist.json'))
 
