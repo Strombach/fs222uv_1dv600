@@ -1,4 +1,5 @@
 const gamerTest = require('./src/gamerTest')
-// const assert = require('chai').assert
+const wordTest = require('./src/wordTest')
 
 gamerTest()
+wordTest()
