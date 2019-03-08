@@ -34,15 +34,17 @@ class Word {
   /**
    * The function that checks if the guessed letter appears in the word
    * and if it does the gamers correctGuesses increases by one.
-   * @param {Object} letter The letter that the gamer guesses.
+   * @param {String} letter The leter that the gamer guesses.
    * @param {Object} gamer The gamer that plays the game.
    */
   checkLetter (letter, gamer) {
     for (let i = 0; i < this.wordArr.length; i++) {
       if (this.wordArr[i].letter === letter) {
         this.wordArr[i].shown = letter
-        this.printWord()
         gamer.correctGuesses++
+        if (gamer.name !== 'sut') {
+          this.printWord()
+        }
       }
     }
   }

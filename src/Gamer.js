@@ -1,8 +1,11 @@
 class Gamer {
   constructor (input) {
     if (!input) {
-      throw new Error('No input sent to gamer constructor')
+      throw new Error('No input sent to Gamer constructor')
+    } else if (typeof input !== 'string') {
+      throw new Error('Input sent to Gamer is not a string')
     }
+
     this.name = input
     this.mistakeCounter = 0
     this.correctGuesses = 0

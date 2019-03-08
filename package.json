@@ -2,6 +2,9 @@
   "name": "hangman_game",
   "version": "1.0.0",
   "description": "Student repository for 1dv600",
+  "standard": {
+    "env": [ "mocha" ]
+  },
   "main": "main.js",
   "scripts": {
     "start": "node ./main.js",
