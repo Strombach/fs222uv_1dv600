@@ -4,7 +4,6 @@ const assert = require('chai').assert
 let highScores = new Scores()
 
 function runTest () {
-  console.log(highScores.getHighScores().length);
   
   describe('HighScores', () => {
     it('The function finds the high-score list', () => {
