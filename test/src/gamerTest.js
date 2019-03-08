@@ -13,18 +13,6 @@ function runTest () {
         assert.typeOf(sut.name, 'string')
         assert.equal(sut.name, 'sut')
       })
-      it('mistakeCounter should be a number and should be zero', () => {
-        assert.typeOf(sut.mistakeCounter, 'number')
-        assert.equal(sut.mistakeCounter, 0)
-      })
-      it('correctGuesses should be a number and should be zero', () => {
-        assert.typeOf(sut.correctGuesses, 'number')
-        assert.equal(sut.correctGuesses, 0)
-      })
-      it('guessedLetters should be empty Array', () => {
-        assert.isArray(sut.guessedLetters, 'The array to keep track of the guessed letters')
-        assert.equal(sut.guessedLetters.length, 0)
-      })
       it('No input should throw exception', () => {
         assert.isTrue(inputThrowsExceptionIfEmpty())
       })
