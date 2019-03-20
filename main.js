@@ -17,7 +17,11 @@ let word = null
 
 let gamer = null
 
-let menu = 'The HangMan\nEnter number\n[1] Play Game\n[2] Quit Game\n'
+let menu = `The HangMan\n
+Enter number
+[1]Play Game
+[2]High-Scores
+[3]Quit Game`
 
 /**
  * The function for generate a word.
@@ -38,6 +42,8 @@ function mainMenu () {
       enterName()
       createWord()
     } else if (userInput === '2') {
+      checkHighScores()
+    } else if (userInput === '3') {
       quitGame()
     } else {
       console.clear()
@@ -129,6 +135,11 @@ Sorry ${gamer.name}, you did not guess the word.
 The word was ${word.chosenWord}
 Want to play again?
 Enter a Number`)
+}
+
+function checkHighScores () {
+  console.clear()
+  console.log('Here are the highscores')
 }
 
 function quitGame (prevState) {
