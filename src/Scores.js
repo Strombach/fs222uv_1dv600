@@ -8,9 +8,16 @@ class Scores {
   getHighScores () {
     let list = JSON.parse(fs.readFileSync('src/highscores.json'))
 
-    return list
+    console.log(list)
   }
-} 
 
-  module.exports = Scores
-  
+  sortList () {
+
+  }
+
+  addToList (gamer, score) {
+
+  }
+}
+
+module.exports = Scores

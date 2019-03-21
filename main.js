@@ -13,6 +13,8 @@ const Scores = require('./src/Scores')
 const wordList = JSON.parse(fs
   .readFileSync('./src/wordlist.json'))
 
+let highScores = new Scores()
+
 let word = null
 
 let gamer = null
@@ -21,7 +23,8 @@ let menu = `The HangMan\n
 Enter number
 [1]Play Game
 [2]High-Scores
-[3]Quit Game`
+[3]Quit Game
+`
 
 /**
  * The function for generate a word.
@@ -139,7 +142,18 @@ Enter a Number`)
 
 function checkHighScores () {
   console.clear()
-  console.log('Here are the highscores')
+  console.log(`HIGH SCORES!!`)
+  highScores.getHighScores()
+  rl.question('Enter "M" for menu or "Q" to quit the game\n', answer => {
+    if (answer === 'Q') {
+      quitGame()
+    } else if (answer === 'M') {
+      mainMenu()
+    } else {
+      checkHighScores()
+      console.log('Invalid choice')
+    }
+  })
 }
 
 function quitGame (prevState) {
