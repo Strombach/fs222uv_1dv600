@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 class Scores {
-  constructor (input) {
+  constructor () {
     try {
       this.highscores = JSON.parse(fs.readFileSync('src/highscores.json'))
     } catch (err) {
@@ -9,6 +9,7 @@ class Scores {
       fs.appendFile('src/highscores.json', this.highscores, () => {
       })
     }
+    this.sortList()
   }
 
   addToList (gamer, score) {
@@ -19,10 +20,16 @@ class Scores {
 
     this.highscores.push(newHighScore)
 
-    let obj = JSON.stringify(this.highscores)
+    let newScore = JSON.stringify(this.highscores)
 
-    fs.writeFile('src/highscores.json', obj, () => {
+    fs.writeFile('src/highscores.json', newScore, () => {
       console.log('Saved Highscore')
+    })
+  }
+
+  sortList () {
+    this.highscores.sort((a, b) => {
+      return a.score - b.score
     })
   }
 }
