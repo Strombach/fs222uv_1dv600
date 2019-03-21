@@ -32,6 +32,12 @@ class Scores {
       return a.score - b.score
     })
   }
+
+  printScores () {
+    for (let i = 1; i < this.highscores.length; i++) {
+      console.log(`${i}. ${this.highscores[i].name}.....${this.highscores[i].score} mistakes`)
+    }
+  }
 }
 
 module.exports = Scores

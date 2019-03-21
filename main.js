@@ -144,7 +144,7 @@ function checkHighScores () {
   let highScores = new Scores()
   console.clear()
   console.log(`HIGH SCORES!!`)
-  console.log(highScores.highscores)
+  highScores.printScores()
   rl.question('Enter "M" for menu or "Q" to quit the game\n', answer => {
     if (answer === 'Q') {
       quitGame()
