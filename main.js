@@ -13,8 +13,6 @@ const Scores = require('./src/Scores')
 const wordList = JSON.parse(fs
   .readFileSync('./src/wordlist.json'))
 
-let highScores = new Scores()
-
 let word = null
 
 let gamer = null
@@ -123,7 +121,9 @@ function guessLetter () {
 }
 
 function winGame () {
+  let highScores = new Scores()
   mainMenu()
+  highScores.addToList(gamer.name, gamer.mistakeCounter)
   console.log(`
 YOU GUESSED THE WORD ${gamer.name}!!
 The word was ${word.chosenWord}
@@ -141,9 +141,10 @@ Enter a Number`)
 }
 
 function checkHighScores () {
+  let highScores = new Scores()
   console.clear()
   console.log(`HIGH SCORES!!`)
-  highScores.getHighScores()
+  console.log(highScores.highscores)
   rl.question('Enter "M" for menu or "Q" to quit the game\n', answer => {
     if (answer === 'Q') {
       quitGame()
