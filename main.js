@@ -122,8 +122,8 @@ function guessLetter () {
 
 function winGame () {
   let highScores = new Scores()
-  mainMenu()
   highScores.addToList(gamer.name, gamer.mistakeCounter)
+  mainMenu()
   console.log(`
 YOU GUESSED THE WORD ${gamer.name}!!
 The word was ${word.chosenWord}

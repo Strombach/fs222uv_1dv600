@@ -9,7 +9,6 @@ class Scores {
       fs.appendFile('src/highscores.json', this.highscores, () => {
       })
     }
-    this.sortList()
   }
 
   addToList (gamer, score) {
@@ -19,8 +18,9 @@ class Scores {
     }
 
     this.highscores.push(newHighScore)
+    this.sortList()
 
-    let newScore = JSON.stringify(this.highscores)
+    let newScore = JSON.stringify(this.highscores.slice(0, 11))
 
     fs.writeFile('src/highscores.json', newScore, () => {
       console.log('Saved Highscore')
@@ -34,8 +34,12 @@ class Scores {
   }
 
   printScores () {
-    for (let i = 1; i < this.highscores.length; i++) {
-      console.log(`${i}. ${this.highscores[i].name}.....${this.highscores[i].score} mistakes`)
+    for (let i = 0; i < 10; i++) {
+      if (this.highscores[i]) {
+        console.log(`${i + 1}. ${this.highscores[i].name}.....${this.highscores[i].score} mistakes`)
+      } else {
+        return
+      }
     }
   }
 }
