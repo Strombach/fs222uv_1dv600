@@ -35,11 +35,15 @@ class Scores {
   }
 
   printScores () {
-    for (let i = 0; i < 10; i++) {
-      if (this.highscores[i]) {
-        console.log(`${i + 1}. ${this.highscores[i].name}.....${this.highscores[i].score} mistakes`)
-      } else {
-        return
+    if (this.highscores.length < 1) {
+      console.log('No high-scores yet')
+    } else {
+      for (let i = 0; i < 10; i++) {
+        if (this.highscores[i]) {
+          console.log(`${i + 1}. ${this.highscores[i].name}.....${this.highscores[i].score} mistakes`)
+        } else {
+          return
+        }
       }
     }
   }
