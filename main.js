@@ -13,6 +13,9 @@ const Scores = require('./src/Scores')
 const wordList = JSON.parse(fs
   .readFileSync('./src/wordlist.json'))
 
+let hangMan = JSON.parse(fs
+  .readFileSync('./src/hangman.json'))
+
 let word = null
 
 let gamer = null
@@ -83,7 +86,9 @@ function enterName () {
  * The gamer can guess a letter.
  */
 function guessLetter () {
-  console.log(gamer.guessedLetters)
+  console.clear()
+  console.log(hangMan[gamer.mistakeCounter])
+  console.log('Guessed letters: ', gamer.guessedLetters)
   gamer.printGamer()
   word.printWord()
 
@@ -112,7 +117,10 @@ function guessLetter () {
       word.printWord()
       winGame()
     } else if (gamer.mistakeCounter === 10) {
-      loseGame()
+      console.log(hangMan[gamer.mistakeCounter])
+      setTimeout(() => {
+        loseGame()
+      }, 2000)
     } else {
       console.clear()
       guessLetter()
@@ -126,7 +134,7 @@ function winGame () {
   mainMenu()
   console.log(`
 YOU GUESSED THE WORD ${gamer.name}!!
-The word was ${word.chosenWord}
+The word was: ${word.chosenWord.toUpperCase()}
 Want to play again?
 Enter a Number`)
 }
@@ -135,7 +143,7 @@ function loseGame () {
   mainMenu()
   console.log(`
 Sorry ${gamer.name}, you did not guess the word.
-The word was ${word.chosenWord}
+The word was: ${word.chosenWord.toUpperCase()}
 Want to play again?
 Enter a Number`)
 }
