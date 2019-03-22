@@ -1,12 +1,13 @@
 const fs = require('fs')
 
 class Scores {
-  constructor () {
+  constructor (input = 'src/highscores.json') {
+    this.path = input
     try {
-      this.highscores = JSON.parse(fs.readFileSync('src/highscores.json'))
+      this.highscores = JSON.parse(fs.readFileSync(input))
     } catch (err) {
       this.highscores = JSON.stringify([])
-      fs.appendFile('src/highscores.json', this.highscores, () => {
+      fs.appendFile(input, this.highscores, () => {
       })
     }
   }
@@ -22,7 +23,7 @@ class Scores {
 
     let newScore = JSON.stringify(this.highscores.slice(0, 11))
 
-    fs.writeFile('src/highscores.json', newScore, () => {
+    fs.writeFile(this.path, newScore, () => {
       console.log('Saved Highscore')
     })
   }
