@@ -147,7 +147,7 @@ function checkHighScores () {
   highScores.printScores()
   rl.question('Enter "M" for menu or "Q" to quit the game\n', answer => {
     if (answer === 'Q') {
-      quitGame()
+      quitGame('score')
     } else if (answer === 'M') {
       mainMenu()
     } else {
@@ -167,9 +167,14 @@ function quitGame (prevState) {
         guessLetter()
       } else if (prevState === 'name') {
         enterName()
+      } else if (prevState === 'score') {
+        checkHighScores()
       } else {
         mainMenu()
       }
+    } else {
+      quitGame()
+      console.log('Invalid choice')
     }
   })
 }
